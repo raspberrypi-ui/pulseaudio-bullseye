@@ -23,7 +23,7 @@ changequote(`[', `]')dnl Set up m4 quoting
 
 ### Automatically restore the volume of streams and devices
 load-module module-device-restore
-load-module module-stream-restore
+load-module module-stream-restore restore_device=false
 load-module module-card-restore
 
 ### Automatically augment property information from .desktop files
@@ -55,7 +55,7 @@ ifelse(@HAVE_MKFIFO@, 1, [dnl
 ### Automatically load driver modules depending on the hardware available
 ifelse(@HAVE_UDEV@, 1, [dnl
 .ifexists module-udev-detect@PA_SOEXT@
-load-module module-udev-detect
+load-module module-udev-detect tsched=0
 .else
 ], @HAVE_COREAUDIO@, 1, [dnl
 .ifexists module-coreaudio-detect@PA_SOEXT@
@@ -82,7 +82,7 @@ load-module module-bluetooth-policy
 .endif
 
 .ifexists module-bluetooth-discover@PA_SOEXT@
-load-module module-bluetooth-discover
+load-module module-bluetooth-discover autodetect_mtu=yes
 .endif
 ])dnl
 

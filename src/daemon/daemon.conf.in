@@ -90,7 +90,7 @@ ifelse(@HAVE_SYS_RESOURCE_H@, 1, [dnl
 ; default-channel-map = front-left,front-right
 
 ; default-fragments = 4
-; default-fragment-size-msec = 25
+default-fragment-size-msec = 15
 
 ; enable-deferred-volume = yes
 ; deferred-volume-safety-margin-usec = 8000
